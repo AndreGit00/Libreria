@@ -1,2 +1,2 @@
 # programma_vittorio_libri_e_documenti
-Il signor Vittorio pretende un programma che consenta di visualizzare e ricercare i documenti di suo possesso.
+Il programma consente un'immediata fruizione e ricerca della documentazione del signor Vittorio.
