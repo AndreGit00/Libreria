@@ -1,0 +1,123 @@
+CREATE TABLE [dbo].[VittorioDATI](
+	[Chiave primaria] [int] NOT NULL,
+	[Argomento] [int] NOT NULL,
+	[Categoria] [varchar](100) NULL,
+	[Autore] [varchar](200) NOT NULL,
+	[Titolo] [varchar](200) NOT NULL,
+	[Editore] [varchar](200) NOT NULL,
+	[Luogo] [varchar](200) NOT NULL,
+	[Data] [varchar](200) NOT NULL,
+ CONSTRAINT [PK_VittorioDATI] PRIMARY KEY CLUSTERED 
+(
+	[Chiave primaria] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+------------------------------------------------------------
+
+CREATE TABLE [dbo].[VittorioARGOMENTI](
+	[Argomento] [int] NOT NULL,
+	[Descrizione] [varchar](200) NOT NULL,
+ CONSTRAINT [PK_VittorioARGOMENTI] PRIMARY KEY CLUSTERED 
+(
+	[Argomento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+------------------------------------------------------------
+
+CREATE VIEW [dbo].[VittorioDATI01]
+AS
+SELECT dbo.VittorioDATI.[Chiave primaria], dbo.VittorioARGOMENTI.Descrizione AS Argomento, dbo.VittorioDATI.Categoria, dbo.VittorioDATI.Autore, dbo.VittorioDATI.Titolo, dbo.VittorioDATI.Editore, 
+             dbo.VittorioDATI.Luogo, dbo.VittorioDATI.Data
+FROM   dbo.VittorioARGOMENTI INNER JOIN
+             dbo.VittorioDATI ON dbo.VittorioARGOMENTI.Argomento = dbo.VittorioDATI.Argomento
+
+------------------------------------------------------------
+
+INSERT [dbo].[VittorioARGOMENTI] ([Argomento], [Descrizione]) VALUES (1, N'Bergamo - Storia e società')
+INSERT [dbo].[VittorioARGOMENTI] ([Argomento], [Descrizione]) VALUES (2, N'Bergamo - I borghi storici')
+INSERT [dbo].[VittorioARGOMENTI] ([Argomento], [Descrizione]) VALUES (3, N'Ambiente e paesaggio')
+INSERT [dbo].[VittorioARGOMENTI] ([Argomento], [Descrizione]) VALUES (4, N'Urbanistica -  cultura, tecnica, pianificazione, gestione del territorio, partecipazione e materiali del centro storico')
+INSERT [dbo].[VittorioARGOMENTI] ([Argomento], [Descrizione]) VALUES (5, N'Bergamo - I tre Piani Regolatori Generali della seconda metà del XX secolo (1951 - 1969 - 1995)')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (1, 1, NULL, N'Bortolo Belotti', N'Vol. I. Storia di Bergamo e dei bergamaschi. Dalla Preistoria a Roma -
+ Bergamo romana - Bergamo nell''Alto Medioevo', N'Bolis', N'Bergamo', N'1989')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (2, 1, NULL, N'Bortolo Belotti', N'Vol. II. Storia di Bergamo e dei bergamaschi. Il comune bergamasco', N'Bolis', N'Bergamo', N'1989')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (3, 1, NULL, N'Bortolo Belotti', N'Vol. III. Storia di Bergamo e dei bergamaschi. Bergamo in signoria - 
+Bergamo veneta', N'Bolis', N'Bergamo', N'1989')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (4, 1, NULL, N'Bortolo Belotti', N'Vol. IV. Storia di Bergamo e dei bergamaschi. Bergamo veneta - Il
+ Rinascimento a Bergamo', N'Bolis', N'Bergamo', N'1989')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (5, 1, NULL, N'Bortolo Belotti', N'Vol. V. Storia di Bergamo e dei bergamaschi. Neutralità e decadenza a
+ Venezia', N'Bolis', N'Bergamo', N'1989')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (6, 1, NULL, N'Bortolo Belotti', N'ol. VI. Storia di Bergamo e dei bergamaschi. Le lettere e le scienze 
+bergamasche nel Seicento', N'Bolis', N'Bergamo', N'1989')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (7, 1, NULL, N'Bortolo Belotti', N'Vol. VII. Storia di Bergamo e dei bergamaschi. Dall''oppressione austriaca
+ al Risorgimento', N'Bolis', N'Bergamo', N'1989')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (8, 1, NULL, N'Bortolo Belotti', N'Vol. VIII. Storia di Bergamo e dei bergamaschi. Bergamo nell''unità della 
+patria
+', N'Bolis', N'Bergamo', N'1989')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (9, 1, NULL, N'Bortolo Belotti', N'Vol. IX. Storia di Bergamo e dei bergamaschi. Indici', N'Bolis', N'Bergamo', N'1990')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (10, 1, NULL, N'Ivano Sonzogni', N'Bortolo Belotti. Il pensiero e l''azione politica di un liberale nell''Italia del primo Novecento', N'Fondazione per la storia economica e sociale di Bergamo', N'Bergamo', N'2007')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (11, 2, NULL, N'Andrea Paiocchi (a cura di)', N'Il Santuario dell''Addolorata in Borgo Santa Caterina', N'Grafital', N'Torre Boldone', N'2002')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (12, 3, NULL, N'Renato Ferlinghetti (a cura di)', N'Per una cultura dei luoghi. Antologia di scritti di Lelio 
+Pagani', N'Monumenta Bergomensia LXXIII', N'Bergamo', N'2008')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (13, 3, NULL, N'Giovanni Corbella (a cura di)', N'Città da scoprire. Guida ai centri minori. Italia
+ settentrionale', N'Touring Club Italiano', N'Milano', N'1983')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (14, 3, NULL, N'Giovanni Corbella (a cura di)', N'Città da scoprire. Guida ai centri minori. Italia centrale', N'Touring Club Italiano', N'Milano', N'1984')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (15, 3, NULL, N'Giovanni Corbella (a cura di)', N'Città da scoprire. Guida ai centri minori. Italia meridionale 
+e isole', N'Touring Club Italiano', N'Milano', N'1985')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (16, 3, NULL, N'Provincia di Bergamo', N'Archeologia industriale. Itinerari in città e in pianura', N'Provincia di Bergamo', N'Bergamo', N'1998')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (17, 3, NULL, N'Regione Lombardia', N'Il recupero artistico dell''Adda di Leonardo', N'Regione Lombardia', N'Milano', N'1998')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (18, 3, NULL, N'Maria Mencaroni Zoppetti (a cura di)', N'D''erbe e piante adorno. Per una storia dei giardini 
+a Bergamo, percorsi tra paesaggi e territorio', N'Fondazione per la storia economica e sociale di Bergamo', N'Bergamo', N'2008')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (19, 3, NULL, N'Anna Letizia Monti, Paolo Villa (a cura di)', N'Architettura del paesaggio in Italia', N'L''ippocampo', N'Milano', N'2020')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (20, 4, NULL, N'Giancarlo Mazzocchi, Andrea Villani (a cura di)', N'Sulla città, oggi. Governo e politiche
+ urbane nella società globale', N'Franco Angeli', N'Milano', N'2002')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (21, 4, NULL, N'Giancarlo Mazzocchi, Andrea Villani (a cura di)', N'Sulla città, oggi. La questione casa', N'Franco Angeli', N'Milano', N'2003')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (22, 4, NULL, N'Giancarlo Mazzocchi, Andrea Villani (a cura di)', N'Sulla città, oggi. Il nodo del traffico', N'Franco Angeli', N'Milano', N'2003')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (23, 4, NULL, N'Giancarlo Mazzocchi, Andrea Villani (a cura di)', N'Sulla città, oggi. Il lavoro e i suoi 
+luoghi dalla fabbrica al terziario avanzato', N'Franco Angeli', N'Milano', N'2003')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (24, 4, NULL, N'Giancarlo Mazzocchi, Andrea Villani (a cura di)', N'Sulla città, oggi. Arte, beni culturali,
+ istituzioni', N'Franco Angeli', N'Milano', N'2004')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (25, 4, NULL, N'Giancarlo Mazzocchi, Andrea Villani (a cura di)', N'Sulla città, oggi. I beni culturali in
+ Italia dopo il Codice Urbani', N'Franco Angeli', N'Milano', N'2004')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (26, 4, NULL, N'Giancarlo Mazzocchi, Andrea Villani (a cura di)', N'Sulla città, oggi. Per una nuova 
+politica della casa', N'Franco Angeli', N'Milano', N'2006')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (27, 4, NULL, N'Andrea Villani', N'Malls, plazas, shopping centers. Distribuzione commerciale, città, territorio 
+negli Stati Uniti', N'I.S.U. - Università Cattolica di Milano', N'Milano', N'1995')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (28, 4, NULL, N'Andrea Villani', N'Luoghi, strutture, forme del commercio in Canada', N'I.S.U. - Università Cattolica di Milano', N'Milano', N'1996')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (29, 4, NULL, N'Andrea Villani (a cura di)', N'I luoghi della visione. Musei, mostre, città', N'I.S.U. - Università Cattolica di Milano', N'Milano', N'1996')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (30, 4, NULL, N'Andrea Villani (a cura di)', N'Il grande cammino. Itinerari e luoghi dei pellegrini nel Medio
+Evo e nel nostro tempo', N'I.S.U. - Università Cattolica di Milano', N'Milano', N'2000')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (31, 4, NULL, N'Andrea Villani (a cura di)', N'La sacra prospettiva. I beni culturali religiosi. Conservazione e
+ progetto', N'I.S.U. - Università Cattolica di Milano', N'Milano', N'2000')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (32, 4, NULL, N'Andrea Villani', N'Le scelte per la città. La politica urbanistica', N'I.S.U. - Università Cattolica di Milano', N'Milano', N'2002')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (33, 4, NULL, N'Andrea Villani', N'La gestione del territorio. Gli attori. Le regole', N'I.S.U. - Università Cattolica di Milano', N'Milano', N'2002')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (34, 4, NULL, N'Giorgio Cologni', N'Urban center', N'Politecnico di Milano', N'Milano', N'2001')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (35, 4, NULL, N'Bernardo Secchi', N'Prima lezione di urbanistica', N'Laterza', N'Roma-Bari', N'2000')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (36, 4, NULL, N'Bernardo Secchi', N'Il racconto urbanistico. La politica della casa e del territorio in Italia', N'Einaudi', N'Torino', N'1984')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (37, 4, NULL, N'Bernardo Secchi', N'Un progetto per l''urbanistica', N'Einaudi', N'Torino', N'1989')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (38, 4, NULL, N'Gian Micalessin', N'Se il Qatar ci compra. Il jihad del lusso e degli affari', N'Il Giornale', N'Milano', N'2016')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (39, 4, NULL, N'Enrico Moretti', N'La nuova geografia del lavoro', N'Mondadori', N'Milano', N'2013')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (40, 4, NULL, N'Pier Angelo Cetica', N'La funzione sociale dell''industrial design', N'Fiorentina', N'Firenze', N'1963')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (41, 4, NULL, N'AA.VV.', N'I limiti culturali della civiltà tecnologica', N'Ares', N'Milano', N'1976')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (42, 4, NULL, N'AA.VV.', N'Urbanistica n. 52. Intero numero dedicato a Venezia', N'Numero a cura dell''Istituto Nazionale di Urbanistica', N'Torino', N'1968')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (43, 5, NULL, N'Comune di Bergamo', N'Cartelletta contenente il Piano Regolatore Generale 
+(Decreto 23 gennaio 1956)', N'Istituto Italiano d''Arti Grafiche', N'Bergamo', N'1959')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (44, 5, NULL, N'Comune di Bergamo', N'Annuario statistico 1961', N'Ufficio Comunale di Statistica', N'Bergamo', N'1961')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (45, 5, NULL, N'Comune di Bergamo', N'Annuario statistico 1962', N'Ufficio Comunale di Statistica', N'Bergamo', N'1962')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (46, 5, NULL, N'Lions Club Bergamo San Marco', N'Guida di accesso e barriere architettoniche di Bergamo', N'Lions Club Bergamo San Marco', N'Bergamo', N'1982')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (47, 5, NULL, N'Comune di Bergamo', N'Organismi architettonici da restituire alla città. 
+Relazione del gruppo di lavoro', N'Comune di Bergamo', N'Bergamo', N'1984')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (48, 5, NULL, N'Comune di Bergamo', N'Mostra-convegno sui complessi monumentali di Bergamo.
+ Atti. Schede informative. Bilancio di un convegno', N'Comune di Bergamo', N'Bergamo', N'1982')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (49, 5, NULL, N'Francesco Indovina (a cura di)', N'La ragione del piano Giovanni Astengo e l''urbanistica 
+italiana', N'Franco Angeli', N'Milano', N'1991')
+INSERT [dbo].[VittorioDATI] ([Chiave primaria], [Argomento], [Categoria], [Autore], [Titolo], [Editore], [Luogo], [Data]) VALUES (50, 5, NULL, N'Raffaella Poggiani Keller (a cura di)', N'Corso di formazione per guide del Civico
+ Museo Archeologico 1979-80. Dispense per la sezione preistorica', N'Comune di Bergamo – Assessorato alla pubblica istruzione e attività culturali', N'Bergamo', N'1979')
+
+------------------------------------------------------------
+
+ALTER TABLE [dbo].[VittorioDATI]  WITH CHECK ADD  CONSTRAINT [FK_VittorioDATI_VittorioARGOMENTI] FOREIGN KEY([Argomento])
+REFERENCES [dbo].[VittorioARGOMENTI] ([Argomento])
+ALTER TABLE [dbo].[VittorioDATI] CHECK CONSTRAINT [FK_VittorioDATI_VittorioARGOMENTI]
