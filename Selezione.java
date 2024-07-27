@@ -1,13 +1,10 @@
-package com.mycompany.mavenproject4;
-
-/* Visualizza i dati ott
-enuti da un' interrogazione */
+/* Visualizza i dati ottenuti da un' interrogazione */
 import java.sql.*;
 public class Selezione
 {
 public static void main (String args [ ] )
 {
-String url = "jdbc:odbc :dbl";
+String url = "jdbc:sqlserver://localhost;encrypt=true;database=AdventureWorks;integratedSecurity=true;";
 Connection con;
 String query = "SELECT {Chiave primaria}, Argomento, Categoria, Autore, Titolo, " + 
 " Editore, Luogo,  Data" +
@@ -16,7 +13,7 @@ String query = "SELECT {Chiave primaria}, Argomento, Categoria, Autore, Titolo, 
 Statement stmt;
 try
 {
-Class.forName( " sun . jdbc .odbc.IdbcOdbcDriver " );
+Class.forName( "com.microsoft.sqlserver.jdbc.SQLServerDriver" );
 }
 catch(ClassNotFoundException e )
 {
@@ -25,7 +22,7 @@ System.err.println(e .getMessage());
 }
 try
 {
-con = DriverManager .getConnection (url," ", " ");
+con = DriverManager.getConnection (url);
 stmt = con.createStatement();
 ResultSet rs = stmt .executeQuery (query );
 while (rs.next ( ) )
