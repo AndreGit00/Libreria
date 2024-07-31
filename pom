@@ -11,6 +11,16 @@
               <name>your custom repo</name>
               <url>https://repo.clojars.org/</url>
             </repository>
+            <repository>
+              <id>my-repo2</id>
+              <name>your custom repo</name>
+              <url>https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc/</url>
+            </repository>
+            <repository>
+              <id>my-repo3</id>
+              <name>your custom repo</name>
+              <url>https://mvnrepository.com/artifact/org.webjars/jTable</url>
+            </repository>
         </repositories> 
     
     <dependencies>
@@ -43,6 +53,16 @@
             <artifactId>aliyun-sdk-pds</artifactId>
             <version>0.4.7</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>12.7.1.jre11-preview</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jTable</artifactId>
+            <version>2.4.0</version>
         </dependency>
     </dependencies>
     <build>
