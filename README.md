@@ -6,4 +6,6 @@ L'ambiente di sviluppo NetBeans consente di interagire facilmente con Github per
 
 In primo luogo, scaricare in locale il progetto presente utilizzando il seguente menù:
 
+<img width="301" alt="Clonazione" src="https://github.com/user-attachments/assets/f3ead4f0-2c5f-4d73-afc7-0953fd4cbb26">
+
 Inserire il link da cui prendere il progetto: https://github.com/AndreGit00/Libreria. Confermare le schermate successive.
