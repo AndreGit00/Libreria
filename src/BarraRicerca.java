@@ -8,5 +8,5 @@
  * @author fedem
  */
 public class BarraRicerca {
-    
+    /** Inserire la classe */
 }
