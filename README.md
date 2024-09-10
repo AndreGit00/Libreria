@@ -17,16 +17,13 @@ Ora le modifiche sono state salvate in locale. Prima di caricarle su Github, se 
    
 ![immagine](https://github.com/user-attachments/assets/020fa116-08c3-45db-ad68-7b28770d1cac)
 
-2) Andare, su NetBeans, nel seguente menù: 
-
-![Apri CONFIGURAZIONE](https://github.com/user-attachments/assets/cfb6125a-103c-4b6e-8657-1879ae2617cc)
-
+2) Andare, su NetBeans, nel seguente menù: TEAM --> REPOSITORY --> OPEN CONFIGURATION.
 
 Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail associata.
 ![immagine](https://github.com/user-attachments/assets/76a840e1-a38e-462e-b4ec-abf9cfcfc8b8)
 
-Ora è posasibile eseguire la procedura di PUSH, per riportare in Github tutte le modifiche effettuate in locale:
-![PUSH](https://github.com/user-attachments/assets/61dcea20-0133-4662-b244-9e5332f65239)
+### Salvataggio delle modifiche su Github tramite PUSH
+Ora è possibile eseguire la procedura di PUSH, per riportare in Github tutte le modifiche effettuate in locale, utilizzando il menù TEAM --> REMOTE --> PUSH.
 
-Un'altra procedura utile è quella di PULL, che consente di aggiornare la versione locale del programma, sulla base delle modifiche caricate da altri utenti su Github:
-![PULL](https://github.com/user-attachments/assets/606d5086-f34b-418d-b404-83d5d9d934de)
+### Aggiornamento programma locale tramite PULL
+Un'altra procedura utile è quella di PULL, che consente di aggiornare la versione locale del programma, sulla base delle modifiche caricate da altri utenti su Github, tramite il menù TEAM --> REMOTE --> PULL.
