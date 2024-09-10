@@ -21,7 +21,7 @@ Ora le modifiche sono state salvate in locale. Prima di caricarle su Github, se 
 
 2) Andare, su NetBeans, nel seguente menù.
    
-![immagine]https://github.com/user-attachments/assets/76a840e1-a38e-462e-b4ec-abf9cfcfc8b8)
+![immagine](https://github.com/user-attachments/assets/76a840e1-a38e-462e-b4ec-abf9cfcfc8b8)
 
 Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail associata.
 ![immagine](https://github.com/user-attachments/assets/9cbc2c5f-1732-4b32-890b-ea6bc1e28175)
