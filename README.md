@@ -13,7 +13,9 @@ Al termine delle modifiche, per confermarle eseguire la procedura di COMMIT tram
 
 ### Configurazione di Github e NetBeans
 Ora le modifiche sono state salvate in locale. Prima di caricarle su Github, se è la prima volta che si effettua il caricamento, seguire i seguenti due passaggi:
-1) Andare sul sito di Github, accedere al proprio profilo e andare sotto il seguente menù: Settings --> Developer settings --> Personal access tokens --> Tokens (classic) --> Generate new token (classic). Nella schermata che compare, in note scrivere "NetBeans" e selezionare tutte le voci presenti nei menù a spunta. Dare al token una scadenza infinita. Una volta generato, salvarlo in un documento poiché non risulterà più reperibile. Su NetBeans, quando compariranno schermate come la seguente, inserire come nome utente la mail e come password il token.
+1) Andare sul sito di Github, accedere al proprio profilo e andare sotto il seguente menù: Settings --> Developer settings --> Personal access tokens --> Tokens (classic) --> Generate new token (classic). Nella schermata che compare, in note scrivere "NetBeans" e selezionare tutte le voci presenti nei menù a spunta. Dare al token una scadenza infinita. Una volta generato, salvarlo in un documento poiché non risulterà più reperibile. Su NetBeans, nelle schermate dove richiesti, inserire come di seguito nome utente e password.
+   User: indirizzo mail
+   Password: token di accesso.
    
 ![immagine](https://github.com/user-attachments/assets/020fa116-08c3-45db-ad68-7b28770d1cac)
 
