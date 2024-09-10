@@ -20,7 +20,9 @@ Ora le modifiche sono state salvate in locale. Prima di caricarle su Github, se 
 <img width="270" alt="ACCESSO" src="https://github.com/user-attachments/assets/020fa116-08c3-45db-ad68-7b28770d1cac">
 
 2) Andare, su NetBeans, nel seguente menù.
-   <img width="550" alt="IMPOSTAZIONI" src="https://github.com/user-attachments/assets/a2e147ac-10d6-4a7b-af4e-526a11d4e16f">
+   
+<img width="300" alt="Apri CONFIGURAZIONE" src="https://github.com/user-attachments/assets/b0d34e91-f207-4038-a19e-77f1ccde89fb">
+
 Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail associata.
 <img width="550" alt="IMPOSTAZIONI" src="https://github.com/user-attachments/assets/f55deb45-0fc9-44e9-b7c0-b08dc009ae24">
 
