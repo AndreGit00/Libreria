@@ -22,7 +22,7 @@ Ora le modifiche sono state salvate in locale. Prima di caricarle su Github, se 
 2) Andare, su NetBeans, nel seguente menù: TEAM --> REPOSITORY --> OPEN CONFIGURATION.
 Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail ASSOCIATA, nel seguente modo:
 
-[user]
+![user]
 
     name = AndreGit00 (inserire il nome utente su Github) 
 
