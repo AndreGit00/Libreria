@@ -12,7 +12,7 @@ Inserire il link da cui prendere il progetto: https://github.com/AndreGit00/Libr
 
 Al termine delle modifiche, per confermarle eseguire la procedura di COMMIT tramite il seguente menù:
 
-![COMMIT](https://github.com/user-attachments/assets/e07468d9-1d23-44a6-bcc9-5f13ce6eb2d9)
+![COMMIT](https://github.com/user-attachments/assets/62caa1a2-025f-4681-b1d6-2f41483b54a4)
 
 Ora le modifiche sono state salvate in locale. Prima di caricarle su Github, se è la prima volta che si effettua il caricamento, seguire i seguenti due passaggi:
 1) Andare sul sito di Github, accedere al proprio profilo e andare sotto il seguente menù: Settings --> Developer settings --> Personal access tokens --> Tokens (classic) --> Generate new token (classic). Nella schermata che compare, in note scrivere "NetBeans" e selezionare tutte le voci presenti nei menù a spunta. Dare al token una scadenza infinita. Una volta generato, salvarlo in un documento poiché non risulterà più reperibile. Su NetBeans, quando compariranno schermate come la seguente, inserire come nome utente la mail e come password il token.
