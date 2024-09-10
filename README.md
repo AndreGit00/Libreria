@@ -24,9 +24,11 @@ Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail 
 
 ![user]
 
-    name = AndreGit00 (inserire il nome utente su Github) 
+    [user]
 
-    email = andre.j5samsung2016@gmail.com (inserire la mail associata all'utenxa Github).
+        name = AndreGit00 (inserire il nome utente su Github) 
+
+        email = andre.j5samsung2016@gmail.com (inserire la mail associata all'utenxa Github).
 
 ### Salvataggio delle modifiche su Github tramite PUSH
 Ora è possibile eseguire la procedura di PUSH, per riportare in Github tutte le modifiche effettuate in locale, utilizzando il menù TEAM --> REMOTE --> PUSH.
