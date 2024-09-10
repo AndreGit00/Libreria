@@ -21,7 +21,7 @@ Ora le modifiche sono state salvate in locale. Prima di caricarle su Github, se 
     Password: token di accesso.
 ```
    
-1) Andare, su NetBeans, nel seguente menù: TEAM --> REPOSITORY --> OPEN CONFIGURATION.
+2) Andare, su NetBeans, nel seguente menù: TEAM --> REPOSITORY --> OPEN CONFIGURATION.
 Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail ASSOCIATA, nel seguente modo:
 
 ```
@@ -29,7 +29,7 @@ Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail 
 
         name = AndreGit00 (inserire il nome utente su Github) 
 
-        email = andre.j5samsung2016@gmail.com (inserire la mail associata all'utenxa Github).
+        email = andre.j5samsung2016@gmail.com (mail associata al profilo Github).
 ```
 
 ### Salvataggio delle modifiche su Github tramite PUSH
