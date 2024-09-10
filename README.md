@@ -29,7 +29,7 @@ Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail 
 
         name = AndreGit00 (nome utente di Github) 
 
-        email = andre.j5samsung2016@gmail.com (mail associata al profilo).
+        email = andre.j5samsung2016@gmail.com (mail di profilo).
 ```
 
 ### Salvataggio delle modifiche su Github tramite PUSH
