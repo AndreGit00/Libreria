@@ -21,10 +21,10 @@ Ora le modifiche sono state salvate in locale. Prima di caricarle su Github, se 
 
 2) Andare, su NetBeans, nel seguente menù.
    
-<img width="300" alt="Apri CONFIGURAZIONE" src="https://github.com/user-attachments/assets/b0d34e91-f207-4038-a19e-77f1ccde89fb">
+![Apri CONFIGURAZIONE](https://github.com/user-attachments/assets/7f00e734-4890-4556-88dc-925bdfb0d3dc)
 
 Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail associata.
-<img width="550" alt="IMPOSTAZIONI" src="https://github.com/user-attachments/assets/f55deb45-0fc9-44e9-b7c0-b08dc009ae24">
+![immagine](https://github.com/user-attachments/assets/9cbc2c5f-1732-4b32-890b-ea6bc1e28175)
 
 Ora è posasibile eseguire la procedura di PUSH, per riportare in Github tutte le modifiche effettuate in locale:
 ![PUSH](https://github.com/user-attachments/assets/61dcea20-0133-4662-b244-9e5332f65239)
