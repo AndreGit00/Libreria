@@ -4,12 +4,11 @@ Il programma consente un'immediata fruizione e ricerca della documentazione del 
 ## Integrazione del progetto Github con NetBeans
 L'ambiente di sviluppo NetBeans consente di interagire facilmente con Github per lo scaricamento e la modifica di progetti presenti. Per scaricare un progetto Github in locale, provvedere alla sua modifica e infine confermare la modifica seguire la seguente guida.
 
-In primo luogo, scaricare in locale il progetto presente utilizzando il seguente menù: TEAM --> GIT --> CLONE.
+### Clonazione di repository
+In primo luogo, scaricare in locale il progetto presente utilizzando il menù: TEAM --> GIT --> CLONE.
+Nella prima schermata il link da cui prendere il progetto: https://github.com/AndreGit00/Libreria. Confermare le schermate successive.
 
-![CLONAZIONE](https://github.com/user-attachments/assets/9b4346e3-5089-4cb5-beb8-f6700bb7ea55)
-
-Inserire il link da cui prendere il progetto: https://github.com/AndreGit00/Libreria. Confermare le schermate successive.
-
+### Salvataggio locale tramite COMMIT
 Al termine delle modifiche, per confermarle eseguire la procedura di COMMIT tramite il seguente menù:
 
 ![COMMIT](https://github.com/user-attachments/assets/62caa1a2-025f-4681-b1d6-2f41483b54a4)
