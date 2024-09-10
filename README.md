@@ -15,22 +15,22 @@ Al termine delle modifiche, per confermarle eseguire la procedura di COMMIT tram
 Ora le modifiche sono state salvate in locale. Prima di caricarle su Github, se è la prima volta che si effettua il caricamento, seguire i seguenti due passaggi:
 1) Andare sul sito di Github, accedere al proprio profilo e andare sotto il seguente menù: Settings --> Developer settings --> Personal access tokens --> Tokens (classic) --> Generate new token (classic). Nella schermata che compare, in note scrivere "NetBeans" e selezionare tutte le voci presenti nei menù a spunta. Dare al token una scadenza infinita. Una volta generato, salvarlo in un documento poiché non risulterà più reperibile. Su NetBeans, nelle schermate dove richiesti, inserire come di seguito nome utente e password.
 
-[]
-
+```
     User: indirizzo mail.
    
     Password: token di accesso.
+```
    
 1) Andare, su NetBeans, nel seguente menù: TEAM --> REPOSITORY --> OPEN CONFIGURATION.
 Impostare, nelle due voci finali, il nome utente utilizzato su Github e la mail ASSOCIATA, nel seguente modo:
 
-[]
-
+```
     [user]
 
         name = AndreGit00 (inserire il nome utente su Github) 
 
         email = andre.j5samsung2016@gmail.com (inserire la mail associata all'utenxa Github).
+```
 
 ### Salvataggio delle modifiche su Github tramite PUSH
 Ora è possibile eseguire la procedura di PUSH, per riportare in Github tutte le modifiche effettuate in locale, utilizzando il menù TEAM --> REMOTE --> PUSH.
