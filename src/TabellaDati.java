@@ -66,8 +66,7 @@ public class TabellaDati extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Integer(101), null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "N°", "Argomento", "Categoria", "Autore", "Titolo", "Editore", "Luogo", "Data "
