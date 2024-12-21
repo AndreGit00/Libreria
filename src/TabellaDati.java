@@ -440,6 +440,24 @@ public class TabellaDati extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        try {
+            collegamento Connessione = new collegamento();
+            Statement st = Connessione.ottieniConnessione();
+            ResultSet risultato = st.executeQuery("SELECT * FROM VittorioDati");
+            while (risultato.next()) {
+                ChiavePrimaria.setText(risultato.getString("[Chiave_primaria]"));
+                Argomento.setText(risultato.getString("Argomento"));
+                Categoria.setText(risultato.getString("Categoria"));
+                Autore.setText(risultato.getString("Autore"));
+                Titolo.setText(risultato.getString("Titolo"));
+                Editore.setText(risultato.getString("Editore"));
+                Luogo.setText(risultato.getString("Luogo"));
+                Anno.setText(risultato.getString("Anno"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void PulsantePerRicercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PulsantePerRicercaActionPerformed
@@ -458,7 +476,7 @@ public class TabellaDati extends javax.swing.JFrame {
             int elimina = JOptionPane.showConfirmDialog(this, "Sei sicuro di cancellare la riga selezionata?");
             if (elimina == 0) {
                 if (!st.execute("DELETE FROM VittorioDati WHERE [Chiave_primaria] = " + ChiavePrimaria.getText())) {
-                        formWindowOpened(null);
+                    formWindowOpened(null);
                 } else {
                 }
             }
@@ -482,6 +500,7 @@ public class TabellaDati extends javax.swing.JFrame {
                     + "Anno = " + Titolo.getText() + ", "
                     + "WHERE [Chiave_primaria] = " + ChiavePrimaria.getText());
             if (!modifica) {
+                formWindowOpened(null);
                 JOptionPane.showMessageDialog(null, "Modificato");
             } else {
                 JOptionPane.showMessageDialog(null, "Errore! Riprova.");
