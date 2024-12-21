@@ -4,6 +4,7 @@ import java.awt.Toolkit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -457,6 +458,7 @@ public class TabellaDati extends javax.swing.JFrame {
             int elimina = JOptionPane.showConfirmDialog(this, "Sei sicuro di cancellare la riga selezionata?");
             if (elimina == 0) {
                 if (!st.execute("DELETE FROM VittorioDati WHERE [Chiave_primaria] = " + ChiavePrimaria.getText())) {
+                        formWindowOpened(null);
                 } else {
                 }
             }
@@ -477,7 +479,7 @@ public class TabellaDati extends javax.swing.JFrame {
                     + "Titolo = " + Titolo.getText() + ", "
                     + "Editore = " + Editore.getText() + ", "
                     + "Luogo = " + Luogo.getText() + ", "
-                    + "Anno = " + Titolo.getText() + ", " 
+                    + "Anno = " + Titolo.getText() + ", "
                     + "WHERE [Chiave_primaria] = " + ChiavePrimaria.getText());
             if (!modifica) {
                 JOptionPane.showMessageDialog(null, "Modificato");
@@ -491,7 +493,32 @@ public class TabellaDati extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        
+        try {
+            collegamento Connessione = new collegamento();
+            Statement st = Connessione.ottieniConnessione();
+            ResultSet RisultatiCercati = st.executeQuery("SELECT * FROM VittorioDati");
+            RisultatiCercati.last();
+            ResultSetMetaData DatiOttenuti = RisultatiCercati.getMetaData();
+            int riga = RisultatiCercati.getRow();
+            int colonna = DatiOttenuti.getColumnCount();
+            RisultatiCercati.beforeFirst();
+            String RigaDati[][] = new String[riga][colonna];
+            int progressivo = 0;
+            while (RisultatiCercati.next()) {
+                for (int i = 0; i < colonna; i++) {
+                    RigaDati[progressivo][i] = RisultatiCercati.getString(i + 1);
+                }
+
+                progressivo++;
+            }
+
+            String[] NomeColonna = {"[Chiave_primaria]", "Argomento", "Categoria", "Autore", "Titolo", "Editore", "Luogo", "Anno"};
+            DefaultTableModel modello = (DefaultTableModel) jTable1.getModel();
+            modello.setDataVector(RigaDati, NomeColonna);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_formWindowOpened
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
