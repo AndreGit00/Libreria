@@ -64,6 +64,11 @@ public class TabellaDati extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pagina di ricerca - Documentazione Vittorio Gandolfi");
         setSize(new java.awt.Dimension(0, 0));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
@@ -207,8 +212,18 @@ public class TabellaDati extends javax.swing.JFrame {
         });
 
         Modifica.setText("Modifica");
+        Modifica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificaActionPerformed(evt);
+            }
+        });
 
         Cancella.setText("Cancella");
+        Cancella.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancellaActionPerformed(evt);
+            }
+        });
 
         Ricerca.setFont(new java.awt.Font("Tahoma", 0, 23)); // NOI18N
         Ricerca.addActionListener(new java.awt.event.ActionListener() {
@@ -433,6 +448,84 @@ public class TabellaDati extends javax.swing.JFrame {
         jTable1.setRowSorter(selettore);
         selettore.setRowFilter(RowFilter.regexFilter("(?i)" + Ricerca.getText()));
     }//GEN-LAST:event_PulsantePerRicercaActionPerformed
+
+    private void CancellaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancellaActionPerformed
+        // TODO add your handling code here:
+        try {
+            collegamento Connessione = new collegamento();
+            Statement st = Connessione.ottieniConnessione();
+            int elimina = JOptionPane.showConfirmDialog(this, "Sei sicuro di cancellare la riga selezionata?");
+            if (elimina == 0) {
+                if (!st.execute("DELETE FROM VittorioDati WHERE [Chiave_primaria] = " + ChiavePrimaria.getText())) {
+                } else {
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_CancellaActionPerformed
+
+    private void ModificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificaActionPerformed
+        // TODO add your handling code here:
+        try {
+            collegamento Connessione = new collegamento();
+            Statement st = Connessione.ottieniConnessione();
+            boolean modifica = st.execute("UPDATE VittorioDati "
+                    + "SET Argomento = " + Argomento.getText() + ", "
+                    + "Categoria = " + Categoria.getText() + ", "
+                    + "Autore = " + Autore.getText() + ", "
+                    + "Titolo = " + Titolo.getText() + ", "
+                    + "Editore = " + Editore.getText() + ", "
+                    + "Luogo = " + Luogo.getText() + ", "
+                    + "Anno = " + Titolo.getText() + ", " 
+                    + "WHERE [Chiave_primaria] = " + ChiavePrimaria.getText());
+            if (!modifica) {
+                JOptionPane.showMessageDialog(null, "Modificato");
+            } else {
+                JOptionPane.showMessageDialog(null, "Errore! Riprova.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_ModificaActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+             try {
+            collegamento Connessione = new collegamento();
+            Statement st = Connessione.ottieniConnessione();
+            ResultSet RisultatiCercati = st.executeQuery("SELECT * FROM VittorioDati"
+                    + "WHERE [Chiave_primaria} LIKE '%" + ParametroDiRicerca + "%'"
+                    + "OR Argomento LIKE '%" + ParametroDiRicerca + "%'"
+                    + "OR Categoria LIKE '%" + ParametroDiRicerca + "%'"
+                    + "OR Autore LIKE '%" + ParametroDiRicerca + "%'"
+                    + "OR Titolo LIKE '%" + ParametroDiRicerca + "%'"
+                    + "OR Editore LIKE '%" + ParametroDiRicerca + "%'"
+                    + "OR Luogo LIKE '%" + ParametroDiRicerca + "%'"
+                    + "OR Anno LIKE '%" + ParametroDiRicerca + "%'");
+            RisultatiCercati.last();
+            ResultSetMetaData DatiOttenuti = RisultatiCercati.getMetaData();
+            int riga = RisultatiCercati.getRow();
+            int colonna = DatiOttenuti.getColumnCount();
+            RisultatiCercati.beforeFirst();
+            String RigaDati[][] = new String[riga][colonna];
+            int progressivo = 0;
+            while (RisultatiCercati.next()) {
+                for (int i = 0; i < colonna; i++) {
+                    RigaDati[progressivo][i] = RisultatiCercati.getString(i + 1);
+                }
+
+                progressivo++;
+            }
+
+            String[] NomeColonna = {"[Chiave_primaria]", "Argomento", "Categoria", "Autore", "Titolo", "Editore", "Luogo", "Anno"};
+  
+            Modello.setDataVector(RigaDati, NomeColonna);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    }//GEN-LAST:event_formWindowOpened
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Anno;
