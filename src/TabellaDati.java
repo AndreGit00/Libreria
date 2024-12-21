@@ -408,7 +408,7 @@ public class TabellaDati extends javax.swing.JFrame {
         DefaultTableModel modello = (DefaultTableModel) jTable1.getModel();
         TableRowSorter<DefaultTableModel> selettore = new TableRowSorter<>(modello);
         jTable1.setRowSorter(selettore);
-        selettore.setRowFilter(RowFilter.regexFilter(Ricerca.getText()));
+        selettore.setRowFilter(RowFilter.regexFilter("(?i)" + Ricerca.getText()));
     }//GEN-LAST:event_PulsantePerRicercaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
