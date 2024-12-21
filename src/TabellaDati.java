@@ -491,40 +491,7 @@ public class TabellaDati extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-             try {
-            collegamento Connessione = new collegamento();
-            Statement st = Connessione.ottieniConnessione();
-            ResultSet RisultatiCercati = st.executeQuery("SELECT * FROM VittorioDati"
-                    + "WHERE [Chiave_primaria} LIKE '%" + ParametroDiRicerca + "%'"
-                    + "OR Argomento LIKE '%" + ParametroDiRicerca + "%'"
-                    + "OR Categoria LIKE '%" + ParametroDiRicerca + "%'"
-                    + "OR Autore LIKE '%" + ParametroDiRicerca + "%'"
-                    + "OR Titolo LIKE '%" + ParametroDiRicerca + "%'"
-                    + "OR Editore LIKE '%" + ParametroDiRicerca + "%'"
-                    + "OR Luogo LIKE '%" + ParametroDiRicerca + "%'"
-                    + "OR Anno LIKE '%" + ParametroDiRicerca + "%'");
-            RisultatiCercati.last();
-            ResultSetMetaData DatiOttenuti = RisultatiCercati.getMetaData();
-            int riga = RisultatiCercati.getRow();
-            int colonna = DatiOttenuti.getColumnCount();
-            RisultatiCercati.beforeFirst();
-            String RigaDati[][] = new String[riga][colonna];
-            int progressivo = 0;
-            while (RisultatiCercati.next()) {
-                for (int i = 0; i < colonna; i++) {
-                    RigaDati[progressivo][i] = RisultatiCercati.getString(i + 1);
-                }
-
-                progressivo++;
-            }
-
-            String[] NomeColonna = {"[Chiave_primaria]", "Argomento", "Categoria", "Autore", "Titolo", "Editore", "Luogo", "Anno"};
-  
-            Modello.setDataVector(RigaDati, NomeColonna);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
+        
     }//GEN-LAST:event_formWindowOpened
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
