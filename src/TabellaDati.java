@@ -502,25 +502,46 @@ public class TabellaDati extends javax.swing.JFrame {
     private void ModificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificaActionPerformed
         // TODO add your handling code here:
         try {
+
+            if ((ChiavePrimaria.getText().isEmpty()) || (Argomento.getText().isEmpty())
+                    || (Autore.getText().isEmpty()) || (Titolo.getText().isEmpty())
+                    || (Editore.getText().isEmpty()) || (Luogo.getText().isEmpty())
+                    || (Anno.getText().isEmpty())) {
+                throw new SQLException("I valori di CHIAVE PRIMARIA, ARGOMENTO, AUTORE, TITOLO, "
+                        + "EDITORE, LUOGO e ANNO non possono essere vuoti.");
+            }
+
             collegamento Connessione = new collegamento();
             Statement st = Connessione.ottieniConnessione();
+            boolean RigaEsistente = st.execute("SELECT * FROM VittorioDati "
+                    + "WHERE [Chiave primaria] = " + ChiavePrimaria.getText());
+            if (RigaEsistente) {
+                throw new SQLException("La CHIAVE PRIMARIA inserita non corrisponde "
+                        + "a una riga esistente.");
+            }
             boolean modifica = st.execute("UPDATE VittorioDati "
-                    + "SET Argomento = " + Argomento.getText() + ", "
-                    + "Categoria = " + Categoria.getText() + ", "
-                    + "Autore = " + Autore.getText() + ", "
-                    + "Titolo = " + Titolo.getText() + ", "
-                    + "Editore = " + Editore.getText() + ", "
-                    + "Luogo = " + Luogo.getText() + ", "
-                    + "Anno = " + Titolo.getText() + ", "
-                    + "WHERE [Chiave_primaria] = " + ChiavePrimaria.getText());
+                    + "SET Argomento = '" + Argomento.getText() + "', "
+                    + "Categoria = '" + Categoria.getText() + "', "
+                    + "Autore = '" + Autore.getText() + "', "
+                    + "Titolo = '" + Titolo.getText() + "', "
+                    + "Editore = '" + Editore.getText() + "', "
+                    + "Luogo = '" + Luogo.getText() + "', "
+                    + "Data = '" + Anno.getText() + "' "
+                    + "WHERE [Chiave primaria] = " + ChiavePrimaria.getText());
             if (!modifica) {
                 formWindowOpened(null);
-                JOptionPane.showMessageDialog(null, "Modificato");
-            } else {
-                JOptionPane.showMessageDialog(null, "Errore! Riprova.");
+                JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
+                        + " è stata modificata correttamente.",
+                        "Modifica effettuata", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this, """
+                Errore! Si ricordi che: il valore inserito in CHIAVE
+                PRIMARIA deve essere corrispondere a una riga esistente,
+                i parametri ARGOMENTO, AUTORE, TITOLO, 
+                EDITORE, LUOGO e ANNO sono obbligatori.""",
+                    "Errore di inserimento", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ModificaActionPerformed
 
