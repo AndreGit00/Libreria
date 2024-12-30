@@ -395,6 +395,15 @@ public class TabellaDati extends javax.swing.JFrame {
     private void InserisciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserisciActionPerformed
         // TODO add your handling code here:
         try {
+
+            if ((ChiavePrimaria.getText().isEmpty()) || (Argomento.getText().isEmpty())
+                    || (Autore.getText().isEmpty()) || (Titolo.getText().isEmpty())
+                    || (Editore.getText().isEmpty()) || (Luogo.getText().isEmpty())
+                    || (Anno.getText().isEmpty())) {
+                throw new SQLException("I valori di CHIAVE PRIMARIA, ARGOMENTO, AUTORE, TITOLO, "
+                        + "EDITORE, LUOGO e ANNO non possono essere vuoti.");
+            }
+
             collegamento Connessione = new collegamento();
             Statement st = Connessione.ottieniConnessione();
             boolean inserisci = st.execute("INSERT INTO VittorioDati VALUES ('"
@@ -411,13 +420,6 @@ public class TabellaDati extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
                         + " è stata inserita correttamente.",
                         "Inserimento effettuato", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, """
-                Errore! Si ricordi che: il valore inserito in CHIAVE
-                PRIMARIA deve essere diverso in ogni riga,
-                i valori ARGOMENTO, AUTORE, TITOLO, EDITORE, 
-                LUOGO E ANNO sono obbligatori.""",
-                        "Errore di inserimento", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -524,32 +526,27 @@ public class TabellaDati extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        try {
-            collegamento Connessione = new collegamento();
-            Statement st = Connessione.ottieniConnessione();
-            ResultSet RisultatiCercati = st.executeQuery("SELECT * FROM VittorioDati");
-            RisultatiCercati.last();
-            ResultSetMetaData DatiOttenuti = RisultatiCercati.getMetaData();
-            int riga = RisultatiCercati.getRow();
-            int colonna = DatiOttenuti.getColumnCount();
-            RisultatiCercati.beforeFirst();
-            String RigaDati[][] = new String[riga][colonna];
-            int progressivo = 0;
-            while (RisultatiCercati.next()) {
-                for (int i = 0; i < colonna; i++) {
-                    RigaDati[progressivo][i] = RisultatiCercati.getString(i + 1);
-                }
-
-                progressivo++;
-            }
-
-            String[] NomeColonna = {"[Chiave_primaria]", "Argomento", "Categoria", "Autore", "Titolo", "Editore", "Luogo", "Anno"};
-            DefaultTableModel modello = (DefaultTableModel) jTable1.getModel();
-            modello.setDataVector(RigaDati, NomeColonna);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        /**
+         * try { collegamento Connessione = new collegamento(); Statement st =
+         * Connessione.ottieniConnessione(); ResultSet RisultatiCercati =
+         * st.executeQuery("SELECT * FROM VittorioDati");
+         * RisultatiCercati.last(); ResultSetMetaData DatiOttenuti =
+         * RisultatiCercati.getMetaData(); int riga = RisultatiCercati.getRow();
+         * int colonna = DatiOttenuti.getColumnCount(); /
+         * RisultatiCercati.beforeFirst(); String RigaDati[][] = new
+         * String[riga][colonna]; int progressivo = 0; while
+         * (RisultatiCercati.next()) { for (int i = 0; i < colonna; i++) {
+         * RigaDati[progressivo][i] = RisultatiCercati.getString(i + 1); }
+         *
+         * progressivo++; }
+         *
+         * String[] NomeColonna = {"[Chiave_primaria]", "Argomento",
+         * "Categoria", "Autore", "Titolo", "Editore", "Luogo", "Anno"};
+         * DefaultTableModel modello = (DefaultTableModel) jTable1.getModel();
+         * modello.setDataVector(RigaDati, NomeColonna);
+         *
+         * } catch (Exception e) { e.printStackTrace(); }
+         */
     }//GEN-LAST:event_formWindowOpened
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
