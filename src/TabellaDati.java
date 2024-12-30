@@ -491,11 +491,18 @@ public class TabellaDati extends javax.swing.JFrame {
             if (elimina == 0) {
                 if (!st.execute("DELETE FROM VittorioDati WHERE [Chiave_primaria] = " + ChiavePrimaria.getText())) {
                     formWindowOpened(null);
-                } else {
+                    JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
+                            + " è stata cancellata correttamente.",
+                            "Cancellazione effettuata", JOptionPane.INFORMATION_MESSAGE);
+
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this, """
+                Errore! Si ricordi che il valore inserito in CHIAVE
+                PRIMARIA deve corrispondere a una riga esistente.""",
+                    "Errore di cancellazione", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_CancellaActionPerformed
 
@@ -538,7 +545,7 @@ public class TabellaDati extends javax.swing.JFrame {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, """
                 Errore! Si ricordi che: il valore inserito in CHIAVE
-                PRIMARIA deve essere corrispondere a una riga esistente,
+                PRIMARIA deve corrispondere a una riga esistente,
                 i parametri ARGOMENTO, AUTORE, TITOLO, 
                 EDITORE, LUOGO e ANNO sono obbligatori.""",
                     "Errore di modifica", JOptionPane.ERROR_MESSAGE);
