@@ -485,11 +485,28 @@ public class TabellaDati extends javax.swing.JFrame {
     private void CancellaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancellaActionPerformed
         // TODO add your handling code here:
         try {
+
+            if (ChiavePrimaria.getText().isEmpty()) {
+                throw new SQLException("Il valore di CHIAVE PRIMARIA non può essere vuoto.");
+            }
             collegamento Connessione = new collegamento();
             Statement st = Connessione.ottieniConnessione();
-            int elimina = JOptionPane.showConfirmDialog(this, "Sei sicuro di cancellare la riga selezionata?");
+            int elimina = JOptionPane.showOptionDialog(null,
+                    "Si conferma la cancellazione della riga " + ChiavePrimaria.getText() + "?",
+                    "Conferma di cancellazione",
+                    JOptionPane.YES_NO_CANCEL_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    new Object[]{"Sì", "No", "Annulla"},
+                    "Sì");
+            ResultSet SelezioneTrovata = st.executeQuery("SELECT * FROM VittorioDati "
+                    + "WHERE [Chiave primaria] = " + ChiavePrimaria.getText());
+            if (!SelezioneTrovata.next()) {
+                throw new SQLException("La CHIAVE PRIMARIA inserita non corrisponde "
+                        + "a una riga esistente.");
+            }
             if (elimina == 0) {
-                if (!st.execute("DELETE FROM VittorioDati WHERE [Chiave_primaria] = " + ChiavePrimaria.getText())) {
+                if (!st.execute("DELETE FROM VittorioDati WHERE [Chiave primaria] = " + ChiavePrimaria.getText())) {
                     formWindowOpened(null);
                     JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
                             + " è stata cancellata correttamente.",
@@ -520,9 +537,9 @@ public class TabellaDati extends javax.swing.JFrame {
 
             collegamento Connessione = new collegamento();
             Statement st = Connessione.ottieniConnessione();
-            boolean RigaEsistente = st.execute("SELECT * FROM VittorioDati "
+            ResultSet RigaEsistente = st.executeQuery("SELECT * FROM VittorioDati "
                     + "WHERE [Chiave primaria] = " + ChiavePrimaria.getText());
-            if (RigaEsistente) {
+            if (!RigaEsistente.next()) {
                 throw new SQLException("La CHIAVE PRIMARIA inserita non corrisponde "
                         + "a una riga esistente.");
             }
