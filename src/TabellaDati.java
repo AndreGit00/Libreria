@@ -541,7 +541,7 @@ public class TabellaDati extends javax.swing.JFrame {
                 PRIMARIA deve essere corrispondere a una riga esistente,
                 i parametri ARGOMENTO, AUTORE, TITOLO, 
                 EDITORE, LUOGO e ANNO sono obbligatori.""",
-                    "Errore di inserimento", JOptionPane.ERROR_MESSAGE);
+                    "Errore di modifica", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ModificaActionPerformed
 
