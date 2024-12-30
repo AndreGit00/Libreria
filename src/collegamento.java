@@ -12,21 +12,20 @@ import java.sql.Statement;
  *
  * @author fedem
  */
-
 // Definizione della classe collegamento.
 public class collegamento {
-    
+
     // attributi privati
     // driver per la connessione al database
     private final String Driver = "net.sourceforge.jtds.jdbc.Driver";
     // stringa per la connessione, specificante instanza, database e dati di accesso
     private final String StringaDiConnessione = "jdbc:sqlite:"
             + "test/VittorioDATI.db";
-    
+
     /* Visualizza i dati ottenuti da un' interrogazione */
-    public Statement ottieniConnessione () throws SQLException, ClassNotFoundException {
+    public Statement ottieniConnessione() throws SQLException, ClassNotFoundException {
         Class.forName(Driver);
-        Connection con = DriverManager.getConnection(StringaDiConnessione); 
+        Connection con = DriverManager.getConnection(StringaDiConnessione);
         return con.createStatement();
-    } 
+    }
 }
