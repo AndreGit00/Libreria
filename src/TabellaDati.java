@@ -410,11 +410,21 @@ public class TabellaDati extends javax.swing.JFrame {
             if (!inserisci) {
                 JOptionPane.showMessageDialog(this, "Inserito");
             } else {
-                JOptionPane.showMessageDialog(this, "Errore! Riprova.");
+                JOptionPane.showMessageDialog(this, """
+                Errore! Si ricordi che: il valore inserito in CHIAVE
+                PRIMARIA deve essere diverso in ogni riga,
+                i valori ARGOMENTO, AUTORE, TITOLO, EDITORE, 
+                LUOGO E ANNO sono obbligatori.""",
+                        "Errore di inserimento", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Errore! Inserire in Chiave Primaria un numero inesistente!");
             e.printStackTrace();
+            JOptionPane.showMessageDialog(this, """
+                Errore! Si ricordi che: il valore inserito in CHIAVE
+                PRIMARIA deve essere diverso in ogni riga,
+                i valori ARGOMENTO, AUTORE, TITOLO, EDITORE, 
+                LUOGO E ANNO sono obbligatori.""",
+                    "Errore di inserimento", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_InserisciActionPerformed
 
