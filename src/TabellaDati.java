@@ -426,8 +426,8 @@ public class TabellaDati extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, """
                 Errore! Si ricordi che: il valore inserito in CHIAVE
                 PRIMARIA deve essere diverso in ogni riga,
-                i valori ARGOMENTO, AUTORE, TITOLO, EDITORE, 
-                LUOGO E ANNO sono obbligatori.""",
+                i parametri ARGOMENTO, AUTORE, TITOLO, 
+                EDITORE, LUOGO e ANNO sono obbligatori.""",
                     "Errore di inserimento", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_InserisciActionPerformed
