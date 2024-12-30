@@ -408,7 +408,9 @@ public class TabellaDati extends javax.swing.JFrame {
                     + Anno.getText() + "')");
 
             if (!inserisci) {
-                JOptionPane.showMessageDialog(this, "Inserito");
+                JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
+                        + " è stata inserita correttamente.",
+                        "Inserimento effettuato", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(this, """
                 Errore! Si ricordi che: il valore inserito in CHIAVE
