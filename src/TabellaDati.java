@@ -91,6 +91,7 @@ public class TabellaDati extends javax.swing.JFrame {
         });
         jTable1.setToolTipText("");
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTable1.setEditingRow(0);
         jTable1.setFillsViewportHeight(true);
         jTable1.setName(""); // NOI18N
         jTable1.setRowHeight(91);
@@ -125,10 +126,11 @@ public class TabellaDati extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(4).setMinWidth(160);
         jTable1.getColumnModel().getColumn(5).setMaxWidth(89);
         jTable1.getColumnModel().getColumn(5).setMinWidth(89);
-        jTable1.getColumnModel().getColumn(6).setMaxWidth(77);
-        jTable1.getColumnModel().getColumn(6).setMinWidth(77);
-        jTable1.getColumnModel().getColumn(7).setMaxWidth(31);
-        jTable1.getColumnModel().getColumn(7).setMinWidth(31);
+        jTable1.getColumnModel().getColumn(6).setMaxWidth(75);
+        jTable1.getColumnModel().getColumn(6).setMinWidth(75);
+        jTable1.getColumnModel().getColumn(7).setMaxWidth(33);
+        jTable1.getColumnModel().getColumn(7).setMinWidth(33);
+        jTable1.setDefaultEditor(Object.class, null);
 
         VisualizzaDati.setText("visualizza dati");
         VisualizzaDati.addActionListener(new java.awt.event.ActionListener() {

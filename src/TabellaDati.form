@@ -182,7 +182,7 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="autoResizeMode" type="int" value="4"/>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="int LarghezzaTabella = jTable1.getWidth();&#xa;jTable1.getColumnModel().getColumn(0).setMaxWidth(23);&#xa;jTable1.getColumnModel().getColumn(0).setMinWidth(23);&#xa;jTable1.getColumnModel().getColumn(1).setMaxWidth(90);&#xa;jTable1.getColumnModel().getColumn(1).setMinWidth(90);&#xa;jTable1.getColumnModel().getColumn(2).setMaxWidth(97);&#xa;jTable1.getColumnModel().getColumn(2).setMinWidth(97);&#xa;jTable1.getColumnModel().getColumn(3).setMaxWidth(121);&#xa;jTable1.getColumnModel().getColumn(3).setMinWidth(121);&#xa;jTable1.getColumnModel().getColumn(4).setMaxWidth(2000);&#xa;jTable1.getColumnModel().getColumn(4).setMinWidth(160);&#xa;jTable1.getColumnModel().getColumn(5).setMaxWidth(89);&#xa;jTable1.getColumnModel().getColumn(5).setMinWidth(89);&#xa;jTable1.getColumnModel().getColumn(6).setMaxWidth(77);&#xa;jTable1.getColumnModel().getColumn(6).setMinWidth(77);&#xa;jTable1.getColumnModel().getColumn(7).setMaxWidth(31);&#xa;jTable1.getColumnModel().getColumn(7).setMinWidth(31);">
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="int LarghezzaTabella = jTable1.getWidth();&#xa;jTable1.getColumnModel().getColumn(0).setMaxWidth(23);&#xa;jTable1.getColumnModel().getColumn(0).setMinWidth(23);&#xa;jTable1.getColumnModel().getColumn(1).setMaxWidth(90);&#xa;jTable1.getColumnModel().getColumn(1).setMinWidth(90);&#xa;jTable1.getColumnModel().getColumn(2).setMaxWidth(97);&#xa;jTable1.getColumnModel().getColumn(2).setMinWidth(97);&#xa;jTable1.getColumnModel().getColumn(3).setMaxWidth(121);&#xa;jTable1.getColumnModel().getColumn(3).setMinWidth(121);&#xa;jTable1.getColumnModel().getColumn(4).setMaxWidth(2000);&#xa;jTable1.getColumnModel().getColumn(4).setMinWidth(160);&#xa;jTable1.getColumnModel().getColumn(5).setMaxWidth(89);&#xa;jTable1.getColumnModel().getColumn(5).setMinWidth(89);&#xa;jTable1.getColumnModel().getColumn(6).setMaxWidth(75);&#xa;jTable1.getColumnModel().getColumn(6).setMinWidth(75);&#xa;jTable1.getColumnModel().getColumn(7).setMaxWidth(33);&#xa;jTable1.getColumnModel().getColumn(7).setMinWidth(33);&#xa;jTable1.setDefaultEditor(Object.class, null);">
               <TableColumnModel selectionModel="1">
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
@@ -226,6 +226,7 @@
                 </Column>
               </TableColumnModel>
             </Property>
+            <Property name="editingRow" type="int" value="0"/>
             <Property name="fillsViewportHeight" type="boolean" value="true"/>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
             <Property name="rowHeight" type="int" value="91"/>
