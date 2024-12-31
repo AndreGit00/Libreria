@@ -41,7 +41,6 @@ public class TabellaDati extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         VisualizzaDati = new javax.swing.JButton();
         ChiavePrimaria = new javax.swing.JTextField();
-        Argomento = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -61,6 +60,7 @@ public class TabellaDati extends javax.swing.JFrame {
         Cancella = new javax.swing.JButton();
         Ricerca = new javax.swing.JTextField();
         PulsantePerRicerca = new javax.swing.JButton();
+        Argomento = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pagina di ricerca - Documentazione Vittorio Gandolfi");
@@ -142,12 +142,6 @@ public class TabellaDati extends javax.swing.JFrame {
         ChiavePrimaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChiavePrimariaActionPerformed(evt);
-            }
-        });
-
-        Argomento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ArgomentoActionPerformed(evt);
             }
         });
 
@@ -240,6 +234,8 @@ public class TabellaDati extends javax.swing.JFrame {
             }
         });
 
+        Argomento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -254,8 +250,7 @@ public class TabellaDati extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(ChiavePrimaria, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                                    .addComponent(Argomento))
-                                .addGap(0, 0, 0)
+                                    .addComponent(Argomento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -265,14 +260,14 @@ public class TabellaDati extends javax.swing.JFrame {
                                     .addComponent(Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, 0)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(Editore, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(0, 0, 0)
-                                        .addComponent(Titolo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(Titolo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(Editore, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, 0)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel7)
@@ -319,13 +314,13 @@ public class TabellaDati extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Argomento)
                     .addComponent(Autore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Anno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Editore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Argomento))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Inserisci)
@@ -384,10 +379,6 @@ public class TabellaDati extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ChiavePrimariaActionPerformed
 
-    private void ArgomentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArgomentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ArgomentoActionPerformed
-
     private void EditoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditoreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EditoreActionPerformed
@@ -396,7 +387,8 @@ public class TabellaDati extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
 
-            if ((ChiavePrimaria.getText().isEmpty()) || (Argomento.getText().isEmpty())
+            if ((ChiavePrimaria.getText().isEmpty())
+                    || (Argomento.getSelectedItem().toString().isEmpty())
                     || (Autore.getText().isEmpty()) || (Titolo.getText().isEmpty())
                     || (Editore.getText().isEmpty()) || (Luogo.getText().isEmpty())
                     || (Anno.getText().isEmpty())) {
@@ -408,7 +400,7 @@ public class TabellaDati extends javax.swing.JFrame {
             Statement st = Connessione.ottieniConnessione();
             boolean inserisci = st.execute("INSERT INTO VittorioDati VALUES ('"
                     + ChiavePrimaria.getText() + "', '"
-                    + Argomento.getText() + "', '"
+                    + Argomento.getSelectedItem().toString() + "', '"
                     + Categoria.getText() + "', '"
                     + Autore.getText() + "', '"
                     + Titolo.getText() + "', '"
@@ -460,7 +452,7 @@ public class TabellaDati extends javax.swing.JFrame {
             ResultSet risultato = st.executeQuery("SELECT * FROM VittorioDati");
             while (risultato.next()) {
                 ChiavePrimaria.setText(risultato.getString("[Chiave_primaria]"));
-                Argomento.setText(risultato.getString("Argomento"));
+                Argomento.setSelectedItem(risultato.getString("Argomento"));;
                 Categoria.setText(risultato.getString("Categoria"));
                 Autore.setText(risultato.getString("Autore"));
                 Titolo.setText(risultato.getString("Titolo"));
@@ -527,7 +519,8 @@ public class TabellaDati extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
 
-            if ((ChiavePrimaria.getText().isEmpty()) || (Argomento.getText().isEmpty())
+            if ((ChiavePrimaria.getText().isEmpty())
+                    || (Argomento.getSelectedItem().toString().isEmpty())
                     || (Autore.getText().isEmpty()) || (Titolo.getText().isEmpty())
                     || (Editore.getText().isEmpty()) || (Luogo.getText().isEmpty())
                     || (Anno.getText().isEmpty())) {
@@ -544,7 +537,7 @@ public class TabellaDati extends javax.swing.JFrame {
                         + "a una riga esistente.");
             }
             boolean modifica = st.execute("UPDATE VittorioDati "
-                    + "SET Argomento = '" + Argomento.getText() + "', "
+                    + "SET Argomento = '" + Argomento.getSelectedItem().toString() + "', "
                     + "Categoria = '" + Categoria.getText() + "', "
                     + "Autore = '" + Autore.getText() + "', "
                     + "Titolo = '" + Titolo.getText() + "', "
@@ -596,7 +589,7 @@ public class TabellaDati extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Anno;
-    private javax.swing.JTextField Argomento;
+    private javax.swing.JComboBox<String> Argomento;
     private javax.swing.JTextField Autore;
     private javax.swing.JButton Cancella;
     private javax.swing.JTextField Categoria;
