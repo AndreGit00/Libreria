@@ -456,16 +456,24 @@ public class TabellaDati extends javax.swing.JFrame {
         try {
             collegamento Connessione = new collegamento();
             Statement st = Connessione.ottieniConnessione();
-            ResultSet risultato = st.executeQuery("SELECT * FROM VittorioDati");
+            int RigaSelezionata = jTable1.getSelectedRow();
+            Object ChiavePrimariaSelezionata = jTable1.getValueAt(RigaSelezionata, 0);
+            String ValoreChiavePrimaria = String.valueOf(ChiavePrimariaSelezionata);
+            String ChiavePrimariaNumerica = ValoreChiavePrimaria.replaceAll("<[^>]*>", "").trim();
+
+            String query = "SELECT * FROM VittorioDati WHERE [Chiave primaria] = " + ChiavePrimariaNumerica;
+
+            ResultSet risultato = st.executeQuery(query);
+
             while (risultato.next()) {
-                ChiavePrimaria.setText(risultato.getString("[Chiave_primaria]"));
-                Argomento.setSelectedItem(risultato.getString("Argomento"));;
+                ChiavePrimaria.setText(String.valueOf(risultato.getInt("Chiave primaria")));
+                Argomento.setSelectedItem(risultato.getString("Argomento"));
                 Categoria.setText(risultato.getString("Categoria"));
                 Autore.setText(risultato.getString("Autore"));
                 Titolo.setText(risultato.getString("Titolo"));
                 Editore.setText(risultato.getString("Editore"));
                 Luogo.setText(risultato.getString("Luogo"));
-                Anno.setText(risultato.getString("Anno"));
+                Anno.setText(risultato.getString("Data"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -506,7 +514,6 @@ public class TabellaDati extends javax.swing.JFrame {
             }
             if (elimina == 0) {
                 if (!st.execute("DELETE FROM VittorioDati WHERE [Chiave primaria] = " + ChiavePrimaria.getText())) {
-                    formWindowOpened(null);
                     JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
                             + " è stata cancellata correttamente.",
                             "Cancellazione effettuata", JOptionPane.INFORMATION_MESSAGE);
@@ -553,7 +560,6 @@ public class TabellaDati extends javax.swing.JFrame {
                     + "Data = '" + Anno.getText() + "' "
                     + "WHERE [Chiave primaria] = " + ChiavePrimaria.getText());
             if (!modifica) {
-                formWindowOpened(null);
                 JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
                         + " è stata modificata correttamente.",
                         "Modifica effettuata", JOptionPane.INFORMATION_MESSAGE);
@@ -571,27 +577,6 @@ public class TabellaDati extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        /**
-         * try { collegamento Connessione = new collegamento(); Statement st =
-         * Connessione.ottieniConnessione(); ResultSet RisultatiCercati =
-         * st.executeQuery("SELECT * FROM VittorioDati");
-         * RisultatiCercati.last(); ResultSetMetaData DatiOttenuti =
-         * RisultatiCercati.getMetaData(); int riga = RisultatiCercati.getRow();
-         * int colonna = DatiOttenuti.getColumnCount(); /
-         * RisultatiCercati.beforeFirst(); String RigaDati[][] = new
-         * String[riga][colonna]; int progressivo = 0; while
-         * (RisultatiCercati.next()) { for (int i = 0; i < colonna; i++) {
-         * RigaDati[progressivo][i] = RisultatiCercati.getString(i + 1); }
-         *
-         * progressivo++; }
-         *
-         * String[] NomeColonna = {"[Chiave_primaria]", "Argomento",
-         * "Categoria", "Autore", "Titolo", "Editore", "Luogo", "Anno"};
-         * DefaultTableModel modello = (DefaultTableModel) jTable1.getModel();
-         * modello.setDataVector(RigaDati, NomeColonna);
-         *
-         * } catch (Exception e) { e.printStackTrace(); }
-         */
     }//GEN-LAST:event_formWindowOpened
 
     private void ArgomentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArgomentoActionPerformed
@@ -629,7 +614,7 @@ public class TabellaDati extends javax.swing.JFrame {
         Image immagine = Toolkit.getDefaultToolkit().getImage("test/IconaProgramma.jpeg");
         setIconImage(immagine);
     }
-    
+
     String[] argomenti;
 
 }
