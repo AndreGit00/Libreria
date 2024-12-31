@@ -91,8 +91,6 @@ public class TabellaDati extends javax.swing.JFrame {
         });
         jTable1.setToolTipText("");
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.setEnabled(false);
         jTable1.setFillsViewportHeight(true);
         jTable1.setName(""); // NOI18N
         jTable1.setRowHeight(91);
