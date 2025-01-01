@@ -20,7 +20,7 @@ public class collegamento {
     private final String Driver = "net.sourceforge.jtds.jdbc.Driver";
     // stringa per la connessione, specificante instanza, database e dati di accesso
     private final String StringaDiConnessione = "jdbc:sqlite:"
-            + "test/VittorioDATI.db";
+            + "../test/VittorioDATI.db";
 
     /* Visualizza i dati ottenuti da un' interrogazione */
     public Statement ottieniConnessione() throws SQLException, ClassNotFoundException {
