@@ -308,17 +308,18 @@ public class TabellaDati extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ChiavePrimaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Categoria)
-                    .addComponent(jLabel7)
-                    .addComponent(Luogo)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Anno)
-                    .addComponent(jLabel4)
-                    .addComponent(Argomento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ChiavePrimaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Categoria)
+                        .addComponent(jLabel7)
+                        .addComponent(Luogo)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Anno)
+                        .addComponent(Argomento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Autore, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -424,10 +425,10 @@ public class TabellaDati extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, """
-                Errore! Si ricordi che: il valore inserito in CHIAVE
-                PRIMARIA deve essere diverso in ogni riga,
-                i parametri ARGOMENTO, AUTORE, TITOLO, 
-                EDITORE, LUOGO e ANNO sono obbligatori.""",
+                Errore! Si ricordi che: il valore inserito
+                in N° deve essere diverso in ogni riga,
+                i parametri ARGOMENTO, AUTORE, TITOLO,
+                EDITORE, LUOGO e DATA sono obbligatori.""",
                     "Errore di inserimento", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_InserisciActionPerformed
@@ -524,8 +525,8 @@ public class TabellaDati extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, """
-                Errore! Si ricordi che il valore inserito in CHIAVE
-                PRIMARIA deve corrispondere a una riga esistente.""",
+                Errore! Si ricordi che il valore inserito
+                in N° deve corrispondere a una riga esistente.""",
                     "Errore di cancellazione", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_CancellaActionPerformed
@@ -568,10 +569,10 @@ public class TabellaDati extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, """
-                Errore! Si ricordi che: il valore inserito in CHIAVE
-                PRIMARIA deve corrispondere a una riga esistente,
+                Errore! Si ricordi che: il valore inserito
+                in N° deve corrispondere a una riga esistente,
                 i parametri ARGOMENTO, AUTORE, TITOLO, 
-                EDITORE, LUOGO e ANNO sono obbligatori.""",
+                EDITORE, LUOGO e DATA sono obbligatori.""",
                     "Errore di modifica", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_ModificaActionPerformed
