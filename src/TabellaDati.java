@@ -362,7 +362,7 @@ public class TabellaDati extends javax.swing.JFrame {
             collegamento Connessione = new collegamento();
             Statement st = Connessione.ottieniConnessione();
 
-            String sql = "select * from VittorioDATI01"; // La tua query SQL
+            String sql = "select * from VittorioDATI01 order by [Chiave primaria]"; // La tua query SQL
             ResultSet rs = st.executeQuery(sql);
 
             Ricerca.setText("");
