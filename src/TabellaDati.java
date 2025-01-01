@@ -1,6 +1,7 @@
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -105,6 +107,9 @@ public class TabellaDati extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTable1MousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTable1MouseReleased(evt);
+            }
         });
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -137,6 +142,17 @@ public class TabellaDati extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(7).setMinWidth(33);
         jTable1.setDefaultEditor(Object.class, null);
         FormattazioneVerticalizzata.ApplicaAllineamento(jTable1);
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                int ChiaveUsata = e.getKeyCode();
+                if (ChiaveUsata == KeyEvent.VK_DOWN || ChiaveUsata == KeyEvent.VK_UP) {
+                    // Impediamo il movimento con la freccia in basso e in alto
+                    e.consume(); // Consuma l'evento per impedire lo spostamento
+                }
+            }
+        });
+        jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         VisualizzaDati.setText("visualizza dati");
         VisualizzaDati.addActionListener(new java.awt.event.ActionListener() {
@@ -576,7 +592,6 @@ public class TabellaDati extends javax.swing.JFrame {
 
     private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
         // TODO add your handling code here:
-        // TODO add your handling code here:
         try {
             collegamento Connessione = new collegamento();
             Statement st = Connessione.ottieniConnessione();
@@ -604,6 +619,37 @@ public class TabellaDati extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jTable1MousePressed
+
+    private void jTable1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseReleased
+        // TODO add your handling code here:
+                // TODO add your handling code here:
+        try {
+            collegamento Connessione = new collegamento();
+            Statement st = Connessione.ottieniConnessione();
+            int RigaSelezionata = jTable1.getSelectedRow();
+            Object ChiavePrimariaSelezionata = jTable1.getValueAt(RigaSelezionata, 0);
+            String ValoreChiavePrimaria = String.valueOf(ChiavePrimariaSelezionata);
+            String ChiavePrimariaNumerica = ValoreChiavePrimaria.replaceAll("<[^>]*>", "").trim();
+
+            String query = "SELECT * FROM VittorioDati WHERE [Chiave primaria] = " + ChiavePrimariaNumerica;
+
+            ResultSet risultato = st.executeQuery(query);
+
+            while (risultato.next()) {
+                ChiavePrimaria.setText(String.valueOf(risultato.getInt("Chiave primaria")));
+                Argomento.setSelectedItem(risultato.getString("Argomento"));
+                Categoria.setText(risultato.getString("Categoria"));
+                Autore.setText(risultato.getString("Autore"));
+                Titolo.setText(risultato.getString("Titolo"));
+                Editore.setText(risultato.getString("Editore"));
+                Luogo.setText(risultato.getString("Luogo"));
+                Anno.setText(risultato.getString("Data"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jTable1MouseReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Anno;
