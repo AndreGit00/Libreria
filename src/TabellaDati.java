@@ -15,7 +15,7 @@ import javax.swing.table.TableRowSorter;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 /**
  *
@@ -136,6 +136,7 @@ public class TabellaDati extends javax.swing.JFrame {
         jTable1.getColumnModel().getColumn(7).setMaxWidth(33);
         jTable1.getColumnModel().getColumn(7).setMinWidth(33);
         jTable1.setDefaultEditor(Object.class, null);
+        FormattazioneVerticalizzata.ApplicaAllineamento(jTable1);
 
         VisualizzaDati.setText("visualizza dati");
         VisualizzaDati.addActionListener(new java.awt.event.ActionListener() {
@@ -261,13 +262,6 @@ public class TabellaDati extends javax.swing.JFrame {
                                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(0, 0, 0)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(Autore, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(jLabel6)
-                                    .addGap(0, 0, 0)
-                                    .addComponent(Editore, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(0, 0, Short.MAX_VALUE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(ChiavePrimaria, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, Short.MAX_VALUE)
@@ -286,7 +280,16 @@ public class TabellaDati extends javax.swing.JFrame {
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(0, 0, 0)
                                     .addComponent(Anno, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(Titolo, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(Autore, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, 0)
+                                            .addComponent(jLabel6)
+                                            .addGap(0, 0, 0)
+                                            .addComponent(Editore, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Titolo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 0, Short.MAX_VALUE))))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(24, 24, 24)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,8 +306,8 @@ public class TabellaDati extends javax.swing.JFrame {
                                     .addComponent(Ricerca, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(PulsantePerRicerca, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,7 +374,12 @@ public class TabellaDati extends javax.swing.JFrame {
             while (rs.next()) {
                 String chiaveprimaria = "<html><center><p>" + String.valueOf(rs.getInt("Chiave primaria")) + "</p></center></html>";
                 String argomento = "<html><p>" + rs.getString("argomento") + "</p></html>";
-                String categoria = "<html><p>" + rs.getString("categoria") + "</p></html>";
+                String categoria = rs.getString("categoria");
+                if (categoria == null) {
+                    categoria = null;  // Mantieni il valore null
+                } else {
+                    categoria = "<html><p>" + categoria + "</p></html>";  // Crea il contenuto HTML se non è null
+                }
                 String autore = "<html><p>" + rs.getString("autore") + "</p></html>";
                 String titolo = "<html><p>" + rs.getString("titolo") + "</p></html>";
                 String editore = "<html><p>" + rs.getString("editore") + "</p></html>";

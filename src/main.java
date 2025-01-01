@@ -14,7 +14,7 @@ public class main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
 
         TabellaDati tabellina;
         tabellina = new TabellaDati();

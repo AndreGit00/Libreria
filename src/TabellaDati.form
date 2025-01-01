@@ -42,14 +42,6 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="Autore" min="-2" pref="336" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="Editore" min="-2" pref="248" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Component id="ChiavePrimaria" min="-2" pref="31" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -69,7 +61,19 @@
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Component id="Anno" min="-2" pref="32" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="Titolo" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="Autore" min="-2" pref="336" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                          <Component id="Editore" min="-2" pref="248" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="Titolo" alignment="0" min="-2" pref="623" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -93,9 +97,9 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane1" alignment="1" pref="678" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="1" pref="688" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -176,7 +180,7 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="autoResizeMode" type="int" value="4"/>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="int LarghezzaTabella = jTable1.getWidth();&#xa;jTable1.getColumnModel().getColumn(0).setMaxWidth(23);&#xa;jTable1.getColumnModel().getColumn(0).setMinWidth(23);&#xa;jTable1.getColumnModel().getColumn(1).setMaxWidth(90);&#xa;jTable1.getColumnModel().getColumn(1).setMinWidth(90);&#xa;jTable1.getColumnModel().getColumn(2).setMaxWidth(97);&#xa;jTable1.getColumnModel().getColumn(2).setMinWidth(97);&#xa;jTable1.getColumnModel().getColumn(3).setMaxWidth(121);&#xa;jTable1.getColumnModel().getColumn(3).setMinWidth(121);&#xa;jTable1.getColumnModel().getColumn(4).setMaxWidth(2000);&#xa;jTable1.getColumnModel().getColumn(4).setMinWidth(160);&#xa;jTable1.getColumnModel().getColumn(5).setMaxWidth(89);&#xa;jTable1.getColumnModel().getColumn(5).setMinWidth(89);&#xa;jTable1.getColumnModel().getColumn(6).setMaxWidth(75);&#xa;jTable1.getColumnModel().getColumn(6).setMinWidth(75);&#xa;jTable1.getColumnModel().getColumn(7).setMaxWidth(33);&#xa;jTable1.getColumnModel().getColumn(7).setMinWidth(33);&#xa;jTable1.setDefaultEditor(Object.class, null);">
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor" postCode="int LarghezzaTabella = jTable1.getWidth();&#xa;jTable1.getColumnModel().getColumn(0).setMaxWidth(23);&#xa;jTable1.getColumnModel().getColumn(0).setMinWidth(23);&#xa;jTable1.getColumnModel().getColumn(1).setMaxWidth(90);&#xa;jTable1.getColumnModel().getColumn(1).setMinWidth(90);&#xa;jTable1.getColumnModel().getColumn(2).setMaxWidth(97);&#xa;jTable1.getColumnModel().getColumn(2).setMinWidth(97);&#xa;jTable1.getColumnModel().getColumn(3).setMaxWidth(121);&#xa;jTable1.getColumnModel().getColumn(3).setMinWidth(121);&#xa;jTable1.getColumnModel().getColumn(4).setMaxWidth(2000);&#xa;jTable1.getColumnModel().getColumn(4).setMinWidth(160);&#xa;jTable1.getColumnModel().getColumn(5).setMaxWidth(89);&#xa;jTable1.getColumnModel().getColumn(5).setMinWidth(89);&#xa;jTable1.getColumnModel().getColumn(6).setMaxWidth(75);&#xa;jTable1.getColumnModel().getColumn(6).setMinWidth(75);&#xa;jTable1.getColumnModel().getColumn(7).setMaxWidth(33);&#xa;jTable1.getColumnModel().getColumn(7).setMinWidth(33);&#xa;jTable1.setDefaultEditor(Object.class, null);&#xa;FormattazioneVerticalizzata.ApplicaAllineamento(jTable1);">
               <TableColumnModel selectionModel="1">
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
