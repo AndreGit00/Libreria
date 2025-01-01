@@ -102,6 +102,9 @@ public class TabellaDati extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable1MousePressed(evt);
+            }
         });
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -351,15 +354,22 @@ public class TabellaDati extends javax.swing.JFrame {
     private void VisualizzaDatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VisualizzaDatiActionPerformed
         // TODO add your handling code here:
         try {
+            // Svuota la tabella per rimuovere i dati precedenti
+            DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
+            tblModel.setRowCount(0);  // Rimuove tutte le righe
 
+            // Ora carica i nuovi dati dal database
             collegamento Connessione = new collegamento();
             Statement st = Connessione.ottieniConnessione();
 
-            String sql = "select * from  VittorioDATI01";
+            String sql = "select * from VittorioDATI01"; // La tua query SQL
             ResultSet rs = st.executeQuery(sql);
 
-            while (rs.next()) {
+            Ricerca.setText("");
+            PulsantePerRicercaActionPerformed(null);
 
+            // Aggiungi i nuovi dati alla tabella
+            while (rs.next()) {
                 String chiaveprimaria = "<html><center><p>" + String.valueOf(rs.getInt("Chiave primaria")) + "</p></center></html>";
                 String argomento = "<html><p>" + rs.getString("argomento") + "</p></html>";
                 String categoria = rs.getString("categoria");
@@ -369,16 +379,13 @@ public class TabellaDati extends javax.swing.JFrame {
                 String luogo = "<html><p>" + rs.getString("luogo") + "</p></html>";
                 String data = "<html><p>" + rs.getString("data") + "</p></html>";
 
+                // Aggiungi la riga alla tabella con i nuovi dati
                 String tbData[] = {chiaveprimaria, argomento, categoria, autore, titolo, editore, luogo, data};
-                DefaultTableModel tblModel = (DefaultTableModel) jTable1.getModel();
-
                 tblModel.addRow(tbData);
-
             }
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            evt.equals(2);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TabellaDati.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -408,19 +415,20 @@ public class TabellaDati extends javax.swing.JFrame {
             collegamento Connessione = new collegamento();
             Statement st = Connessione.ottieniConnessione();
             boolean inserisci = st.execute("INSERT INTO VittorioDati VALUES ('"
-                    + ChiavePrimaria.getText() + "', '"
-                    + Argomento.getSelectedItem().toString() + "', '"
-                    + Categoria.getText() + "', '"
-                    + Autore.getText() + "', '"
-                    + Titolo.getText() + "', '"
-                    + Editore.getText() + "', '"
-                    + Luogo.getText() + "', '"
-                    + Anno.getText() + "')");
+                    + ChiavePrimaria.getText().replace("'", "''") + "', '"
+                    + Argomento.getSelectedItem().toString().replace("'", "''") + "', '"
+                    + Categoria.getText().replace("'", "''") + "', '"
+                    + Autore.getText().replace("'", "''") + "', '"
+                    + Titolo.getText().replace("'", "''") + "', '"
+                    + Editore.getText().replace("'", "''") + "', '"
+                    + Luogo.getText().replace("'", "''") + "', '"
+                    + Anno.getText().replace("'", "''") + "')");
 
             if (!inserisci) {
                 JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
                         + " è stata inserita correttamente.",
                         "Inserimento effettuato", JOptionPane.INFORMATION_MESSAGE);
+                VisualizzaDatiActionPerformed(null);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -455,32 +463,6 @@ public class TabellaDati extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        try {
-            collegamento Connessione = new collegamento();
-            Statement st = Connessione.ottieniConnessione();
-            int RigaSelezionata = jTable1.getSelectedRow();
-            Object ChiavePrimariaSelezionata = jTable1.getValueAt(RigaSelezionata, 0);
-            String ValoreChiavePrimaria = String.valueOf(ChiavePrimariaSelezionata);
-            String ChiavePrimariaNumerica = ValoreChiavePrimaria.replaceAll("<[^>]*>", "").trim();
-
-            String query = "SELECT * FROM VittorioDati WHERE [Chiave primaria] = " + ChiavePrimariaNumerica;
-
-            ResultSet risultato = st.executeQuery(query);
-
-            while (risultato.next()) {
-                ChiavePrimaria.setText(String.valueOf(risultato.getInt("Chiave primaria")));
-                Argomento.setSelectedItem(risultato.getString("Argomento"));
-                Categoria.setText(risultato.getString("Categoria"));
-                Autore.setText(risultato.getString("Autore"));
-                Titolo.setText(risultato.getString("Titolo"));
-                Editore.setText(risultato.getString("Editore"));
-                Luogo.setText(risultato.getString("Luogo"));
-                Anno.setText(risultato.getString("Data"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void PulsantePerRicercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PulsantePerRicercaActionPerformed
@@ -519,6 +501,7 @@ public class TabellaDati extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
                             + " è stata cancellata correttamente.",
                             "Cancellazione effettuata", JOptionPane.INFORMATION_MESSAGE);
+                    VisualizzaDatiActionPerformed(null);
 
                 }
             }
@@ -553,18 +536,19 @@ public class TabellaDati extends javax.swing.JFrame {
                         + "a una riga esistente.");
             }
             boolean modifica = st.execute("UPDATE VittorioDati "
-                    + "SET Argomento = '" + Argomento.getSelectedItem().toString() + "', "
-                    + "Categoria = '" + Categoria.getText() + "', "
-                    + "Autore = '" + Autore.getText() + "', "
-                    + "Titolo = '" + Titolo.getText() + "', "
-                    + "Editore = '" + Editore.getText() + "', "
-                    + "Luogo = '" + Luogo.getText() + "', "
-                    + "Data = '" + Anno.getText() + "' "
+                    + "SET Argomento = '" + Argomento.getSelectedItem().toString().replace("'", "''") + "', "
+                    + "Categoria = '" + Categoria.getText().replace("'", "''") + "', "
+                    + "Autore = '" + Autore.getText().replace("'", "''") + "', "
+                    + "Titolo = '" + Titolo.getText().replace("'", "''") + "', "
+                    + "Editore = '" + Editore.getText().replace("'", "''") + "', "
+                    + "Luogo = '" + Luogo.getText().replace("'", "''") + "', "
+                    + "Data = '" + Anno.getText().replace("'", "''") + "' "
                     + "WHERE [Chiave primaria] = " + ChiavePrimaria.getText());
             if (!modifica) {
                 JOptionPane.showMessageDialog(this, "La riga " + ChiavePrimaria.getText()
                         + " è stata modificata correttamente.",
                         "Modifica effettuata", JOptionPane.INFORMATION_MESSAGE);
+                VisualizzaDatiActionPerformed(null);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -584,6 +568,37 @@ public class TabellaDati extends javax.swing.JFrame {
     private void ArgomentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ArgomentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ArgomentoActionPerformed
+
+    private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        try {
+            collegamento Connessione = new collegamento();
+            Statement st = Connessione.ottieniConnessione();
+            int RigaSelezionata = jTable1.getSelectedRow();
+            Object ChiavePrimariaSelezionata = jTable1.getValueAt(RigaSelezionata, 0);
+            String ValoreChiavePrimaria = String.valueOf(ChiavePrimariaSelezionata);
+            String ChiavePrimariaNumerica = ValoreChiavePrimaria.replaceAll("<[^>]*>", "").trim();
+
+            String query = "SELECT * FROM VittorioDati WHERE [Chiave primaria] = " + ChiavePrimariaNumerica;
+
+            ResultSet risultato = st.executeQuery(query);
+
+            while (risultato.next()) {
+                ChiavePrimaria.setText(String.valueOf(risultato.getInt("Chiave primaria")));
+                Argomento.setSelectedItem(risultato.getString("Argomento"));
+                Categoria.setText(risultato.getString("Categoria"));
+                Autore.setText(risultato.getString("Autore"));
+                Titolo.setText(risultato.getString("Titolo"));
+                Editore.setText(risultato.getString("Editore"));
+                Luogo.setText(risultato.getString("Luogo"));
+                Anno.setText(risultato.getString("Data"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jTable1MousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Anno;
